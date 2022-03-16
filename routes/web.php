@@ -19,4 +19,4 @@ Route::get('/', function () {
 
 Route::get('test',[TestController::class,'index'])->name('test.welcome');
 Route::get('test/{name}',[TestCoclsntroller::class,'check']);
-/*Welcome Code */
+Route::get('test/admin',[TestCoclsntroller::class,'admin']);
