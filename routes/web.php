@@ -16,7 +16,11 @@ use App\Http\Controllers\TestController;
 Route::get('/', function () {
     return view('welcome');
 });
-
 Route::get('test',[TestController::class,'index'])->name('test.welcome');
 Route::get('test/{name}',[TestCoclsntroller::class,'check']);
+Route::get('nael',[TestCoclsntroller::class,'nael']);
 /*Welcome Code */
+
+Route::prefix('admin')->group(function () {
+    Route::get('home',[TestController::class,'home'])->name('home');
+    });

@@ -15,5 +15,13 @@ class TestController extends Controller
     {
       return $name;
     }
-    //
+public function nael()
+{
+  return 'nnnnnnnnnnnnnnnnnnnnnn';
+}
+public function home()
+{
+$title='hello this is home';
+return view('welcome',['title'=>$title]);
+}
 }
