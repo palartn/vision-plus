@@ -24,3 +24,4 @@ Route::get('nael',[TestCoclsntroller::class,'nael']);
 Route::prefix('admin')->group(function () {
     Route::get('home',[TestController::class,'home'])->name('home');
     });
+/*Welcome Code */
