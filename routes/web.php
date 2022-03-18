@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\Site2Controller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,7 +22,10 @@ Route::get('test/{name}',[TestCoclsntroller::class,'check']);
 Route::get('nael',[TestController::class,'nael'])->name('nael');
 /*Welcome Code */
 
-Route::prefix('admin')->group(function () {
-    Route::get('home',[TestController::class,'home'])->name('home');
+Route::prefix('site2')->group(function () {
+    Route::get('/',[Site2Controller::class,'index'])->name('home');
+    Route::get('/about',[Site2Controller::class,'about'])->name('about');
+    Route::get('/contact',[Site2Controller::class,'contact'])->name('contact');
+    Route::get('/posts',[Site2Controller::class,'posts'])->name('posts');
     });
 /*Welcome Code */
