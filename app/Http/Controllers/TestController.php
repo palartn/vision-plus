@@ -17,7 +17,8 @@ class TestController extends Controller
     }
 public function nael()
 {
-  return 'nnnnnnnnnnnnnnnnnnnnnn';
+    $ti='Nael Khail';
+  return view('welcome',['ti'=>$ti]);
 }
 public function home()
 {
