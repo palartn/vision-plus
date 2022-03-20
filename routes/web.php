@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\Site2Controller;
+use App\Http\Controllers\site3Controller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('test',[TestController::class,'index'])->name('test');
-Route::get('test/{name}',[TestCoclsntroller::class,'check']);
+Route::get('test/{name}',[TestController::class,'check']);
 Route::get('nael',[TestController::class,'nael'])->name('nael');
 /*Welcome Code */
 
@@ -27,5 +28,11 @@ Route::prefix('site2')->group(function () {
     Route::get('/about',[Site2Controller::class,'about'])->name('about');
     Route::get('/contact',[Site2Controller::class,'contact'])->name('contact');
     Route::get('/posts',[Site2Controller::class,'posts'])->name('posts');
+    });
+Route::prefix('site3')->group(function () {
+    Route::get('/',[site3Controller::class,'index'])->name('site3home');
+    // Route::get('/about',[Site2Controller::class,'about'])->name('about');
+    // Route::get('/contact',[Site2Controller::class,'contact'])->name('contact');
+    // Route::get('/posts',[Site2Controller::class,'posts'])->name('posts');
     });
 /*Welcome Code */
