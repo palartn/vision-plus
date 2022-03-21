@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\Site2Controller;
 use App\Http\Controllers\site3Controller;
+use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,3 +37,11 @@ Route::prefix('site3')->group(function () {
     // Route::get('/posts',[Site2Controller::class,'posts'])->name('posts');
     });
 /*Welcome Code */
+
+// Route::get('post',[PostController::class,'index']);
+// Route::get('post/create',[PostController::class,'create']);
+Route::resource('post', PostController::class);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
