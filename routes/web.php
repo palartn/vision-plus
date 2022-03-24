@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\Site2Controller;
 use App\Http\Controllers\site3Controller;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\Site4Controller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,3 +46,8 @@ Route::resource('post', PostController::class);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::prefix('site4')->group(function(){
+     Route::get('/',[Site4Controller::class,'index'])->name('site4index');
+     Route::post('/',[Site4Controller::class,'store'])->name('site4form');
+    });
