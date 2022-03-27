@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <form action="{{ route('site4form') }}" method="POST">
+    <form action="{{ route('site4form') }}" method="POST" enctype="multipart/form-data">
         <div class="container">
             <form>
                 @csrf
@@ -34,7 +34,13 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
-                <div class="mb-3 form-check">
+
+                    <div class="mb-3">
+                        <label for="file" class="form-label">file</label>
+                        <input type="file" name="file" class="form-control"  @error('file') is-invalid @enderror>
+                        @error('file')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
 
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>

@@ -25,7 +25,8 @@ class Site4Request extends FormRequest
     {
         return [
             'name'=>'required|min:5',
-            'password'=>'required'
+            'password'=>'required',
+            'file'=>'required'
 
         ];
     }
