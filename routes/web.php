@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TestController;
@@ -51,3 +52,12 @@ Route::prefix('site4')->group(function(){
      Route::get('/',[Site4Controller::class,'index'])->name('site4index');
      Route::post('/',[Site4Controller::class,'store'])->name('site4form');
     });
+Route::get('/insert',function(){
+    
+    DB::insert('insert into news (id, title, body,created_at,updated_at) values (?, ?, ?, ?, ?)', [2, 'Dayle','ooooooooo',now(),now()]);
+    
+});
+Route::get('/insert2',function(){
+    DB::table('news')->insert(['title'=>'aaaa','body'=>'Nael']);    
+});
+
