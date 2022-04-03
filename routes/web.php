@@ -1,8 +1,11 @@
 <?php
 
+use App\Models\order;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\Site2Controller;
 use App\Http\Controllers\site3Controller;
 use App\Http\Controllers\Site4Controller;
@@ -16,10 +19,12 @@ use App\Http\Controllers\Site4Controller;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('order',[OrderController::class,'index'])->name('order');
+
+Route::resource('user', UserController::class);
 Route::get('test',[TestController::class,'index'])->name('test');
 Route::get('test/{name}',[TestController::class,'check']);
 Route::get('nael',[TestController::class,'nael'])->name('nael');
@@ -51,3 +56,16 @@ Route::prefix('site4')->group(function(){
      Route::get('/',[Site4Controller::class,'index'])->name('site4index');
      Route::post('/',[Site4Controller::class,'store'])->name('site4form');
     });
+Route::get('/insert',function(){
+
+    DB::insert('insert into news (id, title, body,created_at,updated_at) values (?, ?, ?, ?, ?)', [2, 'Dayle','ooooooooo',now(),now()]);
+});
+Route::get('/insert2',function(){
+    DB::table('news')->insert(['title'=>'aaaa','body'=>'Nael']);
+});
+Route::get('/insert3',function(){
+    DB::table('test')->insert(['name'=>'','body'=>'Nael','created_at'=>now(),'updated_at'=>now()]);
+});
+
+
+
