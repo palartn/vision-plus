@@ -22,10 +22,10 @@ use App\Http\Controllers\Site4Controller;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('order',[OrderController::class,'index'])->name('order');
+Route::resource('order',OrderController::class);
 
-Route::resource('user', UserController::class);
-Route::get('test',[TestController::class,'index'])->name('test');
+//Route::resource('user', UserController::class);
+Route::get('tes',[TestController::class,'index'])->name('test');
 Route::get('test/{name}',[TestController::class,'check']);
 Route::get('nael',[TestController::class,'nael'])->name('nael');
 /*Welcome Code */
