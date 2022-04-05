@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\order;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class OrderController extends Controller
 {
@@ -45,9 +46,9 @@ class OrderController extends Controller
         Order::create([
             'name'=>$request->name,
             'order_body'=>$request->body,
-            'created_at'=>now(),
-            'updated_at'=>now()
         ]);
+        toast('Success Toast','success');
+        return redirect()->route('order.index');
     }
 
     /**
@@ -58,7 +59,7 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+       return 'ssssssssssss';
     }
 
     /**
@@ -92,6 +93,9 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        order::destroy($id);
+        return redirect()->route('order.index');
+        // return redirect()->back();
+
     }
 }
