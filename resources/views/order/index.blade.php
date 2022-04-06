@@ -37,11 +37,11 @@
          <td>{{ $order->name }}</td>
          <td>{!! $order->order_body !!}</td>
          <td>{{ $order->created_at }}</td>
-         <td><a href=""><i class="fa-solid fa-pen-to-square btn btn btn-primary btn-md"></i></a></a>
+         <td><a href="{{ route('order.edit',$order->id) }}"><i class="fa-solid fa-pen-to-square btn btn btn-primary btn-md"></i></a></a>
 
         <form class="d-inline" action="{{ route('order.destroy',$order->id) }}" method="POST" >
 @csrf
-@method('delete')
+@method('update')
 <button class="fa-solid fa-trash-can btn btn-primary btn-md btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip"></button>  </td>
 
         </form>
@@ -63,7 +63,7 @@
 
 </body>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script src="{{ asset('boot_files/js/sweetalert.min.js') }}"></script>
 <script type="text/javascript">
 
      $('.show_confirm').click(function(event) {
@@ -71,7 +71,7 @@
           var name = $(this).data("name");
           event.preventDefault();
           swal({
-              title: `هل أنت متأكد?`,
+              title: `هل أنت متأكد من الحذف?`,
               text: "سيتم حذف الملف نهائياً.",
               icon: "error",
               buttons: true,

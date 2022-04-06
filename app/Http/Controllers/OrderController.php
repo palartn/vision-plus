@@ -70,7 +70,8 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-        //
+       $orders=order::findorFail($id);
+       return view('order.edit',compact('orders'));
     }
 
     /**
@@ -82,7 +83,16 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name'=>'required|min:3',
+            'body'=>'required'
+        ]);
+        Order::find($id)->update([
+            'name'=>$request->name,
+            'order_body'=>$request->body,
+        ]);
+        toast('تم التعديل بنجاح','success');
+        return redirect()->route('order.index');
     }
 
     /**
