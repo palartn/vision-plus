@@ -41,7 +41,7 @@
 
         <form class="d-inline" action="{{ route('order.destroy',$order->id) }}" method="POST" >
 @csrf
-@method('update')
+@method('delete')
 <button class="fa-solid fa-trash-can btn btn-primary btn-md btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip"></button>  </td>
 
         </form>
