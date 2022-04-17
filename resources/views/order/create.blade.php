@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title></title>
     <meta charset="UTF-8">
@@ -8,7 +7,6 @@
     <link href="{{ asset('boot_files/css/bootstrap.css') }}" rel="stylesheet">
     <script src={{ asset('boot_files/js/bootstrap.js') }}></script>
 </head>
-
 <body>
     <div class="container ">
  <div class="d-flex justify-content-between align-items-center mb-3 ">
@@ -23,9 +21,6 @@
             {{$error}}
         </li>
         @endforeach
-
-
-
     </ul>
   </div>
 @endif
@@ -41,21 +36,16 @@
      <textarea id="mytextarea" name="body" class="form-control" rows="5" placeholder="Body"></textarea>
  </div>
  <button class="btn btn-success px-5">Add New</button>
-
     </div>
 </form>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.0.1/tinymce.min.js" integrity="sha512-WVGmm/5lH0QUFrXEtY8U9ypKFDqmJM3OIB9LlyMAoEOsq+xUs46jGkvSZXpQF7dlU24KRXDsUQhQVY+InRbncA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
-
 </html>
-
 <script>
     tinymce.init({
       selector: '#mytextarea',
       plugins:'code',
 
     });
-
   </script>
 
