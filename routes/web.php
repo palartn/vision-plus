@@ -9,6 +9,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\Site2Controller;
 use App\Http\Controllers\site3Controller;
 use App\Http\Controllers\Site4Controller;
+use App\Http\Controllers\RelationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,9 +20,17 @@ use App\Http\Controllers\Site4Controller;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::prefix('relation')->group(function () {
+    Route::get('/',[RelationController::class,'index'])->name('relation_index');
+    Route::get('one_to_many',[RelationController::class,'one_to_many'])->name('one_to_many');
+    Route::Post('one_to_many',[RelationController::class,'one_to_many_submit'])->name('one_to_many_submit');
+});
+
 Route::resource('order',OrderController::class);
 
 //Route::resource('user', UserController::class);
