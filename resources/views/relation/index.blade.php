@@ -1,6 +1,33 @@
 @extends('layouts.admin')
 @section('content')
 
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Product</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      @foreach ($data as $item)
+    
+    
+      
+      <th scope="row">{{$item->user->id}}</th>
+      <td>{{$item->user->name}}</td>
+      <td> {{$item->name}}</td>
+    </tr>
+    @endforeach
+    
+     
+  </tbody>
+</table>
+
+
+
+
 {{-- <form action="{{ url('post') }}" method="post"> --}}
 <form action="{{route('one_to_many_submit')}}" method="post">
     @csrf
