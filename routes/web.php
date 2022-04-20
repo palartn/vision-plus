@@ -29,6 +29,7 @@ Route::prefix('relation')->group(function () {
     Route::get('/',[RelationController::class,'index'])->name('relation_index');
     Route::get('one_to_many',[RelationController::class,'one_to_many'])->name('one_to_many');
     Route::Post('one_to_many',[RelationController::class,'one_to_many_submit'])->name('one_to_many_submit');
+    Route::get('many_to_many',[RelationController::class,'many_to_many'])->name('many_to_many');
 });
 
 Route::resource('order',OrderController::class);
@@ -78,3 +79,11 @@ Route::get('/insert3',function(){
 
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

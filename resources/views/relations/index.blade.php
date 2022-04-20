@@ -1,6 +1,9 @@
 @extends('layouts.admin')
 @section('content')
-<h1> the name is {{ $post->name; }}</h1>
+@foreach ($aa as $a11 )
+{{ $a11->name }}
+
+@endforeach
 <form action="{{ route('one_to_many_submit') }}" method="post">
     @csrf
     <div class="mb-3">
