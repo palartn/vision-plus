@@ -40,6 +40,14 @@ Route::get('test/{name}',[TestController::class,'check']);
 Route::get('nael',[TestController::class,'nael'])->name('nael');
 /*Welcome Code */
 
+Route::prefix('relation')->group(function (){
+Route::get('/',[RelationController::class,'index'])->name('main');
+Route::get('one_to_many',[RelationController::class,'one_to_many'])->name('main_relation');
+Route::Post('one_to_many',[RelationController::class,'one_to_many_submit'])->name('one_to_many_submit');
+Route::get('many_to_many',[RelationController::class,'many_to_many'])->name('many_to_many');
+
+
+});
 Route::prefix('site2')->group(function () {
     Route::get('/',[Site2Controller::class,'index'])->name('home');
     Route::get('/about',[Site2Controller::class,'about'])->name('about');
